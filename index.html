@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To Peter, from Gaby 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e, #2b2e4a, #3a3f6b);
+  color: #f1f1f1;
+  text-align: center;
+  overflow-x: hidden; /* FIXED */
+}
+
+/* 🌌 STARS */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    20px 30px white, 100px 80px white, 200px 150px white,
+    300px 200px white, 400px 100px white, 500px 250px white,
+    600px 50px white, 700px 180px white, 800px 120px white,
+    900px 300px white, 1000px 200px white;
+  animation: moveStars 30s linear infinite;
+}
+
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1200px); }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  padding: 60px 20px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  animation: fadeIn 2s ease;
+}
+
+h2 {
+  font-weight: 300;
+  color: #d1d1ff;
+  margin-bottom: 30px;
+  animation: fadeIn 3s ease;
+}
+
+.card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 420px;
+  backdrop-filter: blur(12px);
+  animation: float 5s ease-in-out infinite;
+}
+
+p {
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #f1f1f1;
+  color: #111;
+  cursor: pointer;
+}
+
+.hidden { display: none; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* LOCK */
+#lockscreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e, #2b2e4a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+#lockscreen input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+}
+
+#lockscreen button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<!-- 🔒 LOCK -->
+<div id="lockscreen">
+  <h2>For Peter only… 💭</h2>
+  <input type="password" id="passwordInput" placeholder="your birthday 🎂">
+  <button onclick="checkPassword()">Unlock 💌</button>
+</div>
+
+<div class="container">
+  <h1>Happy Birthday, Peter 🎂</h1>
+  <h2>van Gaby, met iets meer dan een beetje liefde 💗</h2>
+
+  <div class="card">
+    <p>
+      Happy birthday, you 🫶<br><br>
+      Gelukkige verjaardag, knappe man 🇳🇱<br><br>
+      I tried to write something perfect here… ✍️<br>
+      but nothing really feels enough when it’s about you.<br><br>
+      so this is just me being honest —<br>
+      you’ve become someone I look forward to ✨<br>
+      in the most unexpected way.
+    </p>
+  </div>
+
+  <div class="card">
+    <p>
+      You’re somehow both my calm and my chaos 🌙<br><br>
+      Jij bent mijn rust… en soms ook mijn probleem 😭<br><br>
+      and somehow, I don’t mind that at all.<br><br>
+      you make ordinary days feel a little less ordinary ☁️
+    </p>
+  </div>
+
+  <div class="card">
+    <p>
+      I like talking to you.<br>
+      I like your presence.<br><br>
+      and I like the way you exist in my life right now 💭<br><br>
+      even if it’s not perfect…<br>
+      it’s still something I wouldn’t trade 🤍
+    </p>
+  </div>
+
+  <button class="btn" onclick="showMessage()">open this 💌</button>
+
+  <div id="secret" class="hidden">
+    <div class="card">
+      <p>
+        I wish I could be there with you today 🫂<br><br>
+        maybe sitting next to you,<br>
+        doing nothing important…<br>
+        but still feeling like it matters.<br><br>
+        Dank je dat je in mijn leven bent gekomen 💗<br><br>
+        and yeah…<br>
+        I like you.<br><br>
+        probably more than I planned to 🌙
+      </p>
+      ❤️
+    </div>
+  </div>
+
+</div>
+
+<audio autoplay loop>
+  <source src="YOUR-MUSIC-LINK.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function showMessage() {
+  document.getElementById("secret").style.display = "block";
+}
+
+function checkPassword() {
+  var password = document.getElementById("passwordInput").value;
+
+  if(password === "2903") {
+    document.getElementById("lockscreen").style.display = "none";
+  } else {
+    alert("wrong password :)");
+  }
+}
+</script>
+
+</body>
+</html>
