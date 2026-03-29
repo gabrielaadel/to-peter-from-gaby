@@ -14,7 +14,7 @@ body {
   background: linear-gradient(135deg, #1a1a2e, #2b2e4a, #3a3f6b);
   color: #f1f1f1;
   text-align: center;
-  overflow-x: hidden; /* FIXED */
+  overflow-x: hidden;
 }
 
 /* 🌌 STARS */
@@ -92,6 +92,12 @@ p {
 
 .hidden { display: none; }
 
+#errorMsg {
+  color: #ffb3c6;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -140,18 +146,33 @@ p {
   <h2>For Peter only… 💭</h2>
   <input type="password" id="passwordInput" placeholder="your birthday 🎂">
   <button onclick="checkPassword()">Unlock 💌</button>
+  <p id="errorMsg"></p>
 </div>
 
 <div class="container">
   <h1>Happy Birthday, Peter 🎂</h1>
   <h2>van Gaby, met iets meer dan een beetje liefde 💗</h2>
 
+  <!-- 🎂 WISH -->
   <div class="card">
     <p>
-      Happy birthday, you 🫶<br><br>
+      Happy birthday, Peter 🎂<br><br>
+
+      I hope this year treats you gently,<br>
+      brings you things you didn’t even know you needed,<br>
+      and gives you more reasons to smile 🤍<br><br>
+
+      you deserve that… and maybe a little more ✨
+    </p>
+  </div>
+
+  <div class="card">
+    <p>
       Gelukkige verjaardag, knappe man 🇳🇱<br><br>
+
       I tried to write something perfect here… ✍️<br>
       but nothing really feels enough when it’s about you.<br><br>
+
       so this is just me being honest —<br>
       you’ve become someone I look forward to ✨<br>
       in the most unexpected way.
@@ -161,8 +182,11 @@ p {
   <div class="card">
     <p>
       You’re somehow both my calm and my chaos 🌙<br><br>
+
       Jij bent mijn rust… en soms ook mijn probleem 😭<br><br>
+
       and somehow, I don’t mind that at all.<br><br>
+
       you make ordinary days feel a little less ordinary ☁️
     </p>
   </div>
@@ -171,7 +195,9 @@ p {
     <p>
       I like talking to you.<br>
       I like your presence.<br><br>
+
       and I like the way you exist in my life right now 💭<br><br>
+
       even if it’s not perfect…<br>
       it’s still something I wouldn’t trade 🤍
     </p>
@@ -183,13 +209,18 @@ p {
     <div class="card">
       <p>
         I wish I could be there with you today 🫂<br><br>
+
         maybe sitting next to you,<br>
         doing nothing important…<br>
         but still feeling like it matters.<br><br>
+
         Dank je dat je in mijn leven bent gekomen 💗<br><br>
+
         and yeah…<br>
         I like you.<br><br>
-        probably more than I planned to 🌙
+
+        more than I planned to…<br>
+        and maybe a little more than I should 🌙
       </p>
       ❤️
     </div>
@@ -204,11 +235,12 @@ function showMessage() {
 
 function checkPassword() {
   var password = document.getElementById("passwordInput").value;
+  var error = document.getElementById("errorMsg");
 
   if(password === "2903") {
     document.getElementById("lockscreen").style.display = "none";
   } else {
-    alert("wrong password :)");
+    error.innerText = "hmm… not quite right 🥺 try again, birthday boy 🎂";
   }
 }
 </script>
